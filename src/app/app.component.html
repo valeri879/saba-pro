@@ -1,3 +1,17 @@
-<p>Hello world :)</p>
-<app-child></app-child>
-<!-- <router-outlet></router-outlet> -->
+<div class="container">
+
+    <h3 [ngStyle]="fontObj" class="my-5">app component <code>{{ dataFromChild }}</code> </h3>
+    <button (click)="toggle()" class="btn btn-primary">toggle bold</button>
+
+    <ng-container *ngFor="let card of cards">
+        <ng-container *ngIf="card.isPublished">
+            <app-child (dataEvent)="dataFromChild = $event" [data]="card"></app-child>
+            <code>{{ card | json }}</code>
+            <hr>
+        </ng-container>
+    </ng-container>
+
+    <code>{{ cards | json }}</code>
+    <!-- <router-outlet></router-outlet> -->
+
+</div>
