@@ -3,4 +3,6 @@ export interface Card {
     descr: string;
     img: string;
     isPublished: boolean;
+    insertDate: Date;
+    price: number;
 }
