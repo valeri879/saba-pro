@@ -1,2 +1,7 @@
 <h1>All Courses</h1>
-<app-card *ngFor="let card of dataService.cards" [card]="card"></app-card>
+<a
+    *ngFor="let card of dataService.cards"
+    routerLink="/course-list/{{card.id}}"
+    class="text-decoration-none mb-3 d-block">
+    <app-card [card]="card"></app-card>
+</a>
