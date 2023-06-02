@@ -1,1 +1,12 @@
-<h1>Course List {{ id }}</h1>
+<h1>
+    Course List 
+    <ng-container *ngIf="params$ | async as params">
+        {{ params['id'] }}
+    </ng-container>
+</h1>
+<h2>All our courses</h2>
+<div class="row">
+    <a routerLink="/course-list/{{card.id}}" class="col-4 text-decoration-none" *ngFor="let card of dataService.cards">
+        <app-card [card]="card"></app-card>
+    </a>
+</div>

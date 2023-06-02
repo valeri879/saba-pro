@@ -1,6 +1,23 @@
 <h1>All Courses</h1>
+<div class="d-flex align-items-center bg-light my-3">
+    <div>Filters:</div>
+    <!-- asc -->
+    <a
+        routerLink="/courses"
+        [queryParams]="{ filter: 'asc' }"
+        class="btn btn-link">
+        Asc
+    </a>
+    <!-- desc -->
+    <a
+        routerLink="/courses"
+        [queryParams]="{ filter: 'desc' }"
+        class="btn btn-link">
+        Desc
+    </a>
+</div>
 <a
-    *ngFor="let card of dataService.cards"
+    *ngFor="let card of cards"
     routerLink="/course-list/{{card.id}}"
     class="text-decoration-none mb-3 d-block">
     <app-card [card]="card"></app-card>
