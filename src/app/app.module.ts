@@ -14,6 +14,7 @@ import { SingUpPageComponent } from './pages/sing-up-page/sing-up-page.component
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { PrefixPipe } from './pipes/prefix.pipe';
 import { SharedModule } from './shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 console.log('App module loaded...');
 
@@ -31,6 +32,7 @@ console.log('App module loaded...');
     AuthPageComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule

@@ -1,12 +1,28 @@
-<div class="card p-3">
+<div [formGroup]="singUpForm" class="card p-3">
+    <h1>Sign up</h1>
     <div class="mb-3">
-        <input type="email" placeholder="email" class="form-control">
+        <input formControlName="email" type="email" placeholder="email" class="form-control">
     </div>
     <div class="mb-3">
-        <input type="password" placeholder="password" class="form-control">
+        <input formControlName="password" type="password" placeholder="password" class="form-control">
     </div>
-    <div class="mb-3">
-        <input type="password" placeholder="replay password" class="form-control">
+    <div class="">
+        <input formControlName="rePassword" type="password" placeholder="replay password" class="form-control">
     </div>
+    <hr>
+    <div formArrayName="nickNames">
+        <div *ngFor="let nick of nickNames.controls; let i = index">
+            <div class="row gx-1 mb-3">
+                <div class="col-9">
+                    <input [formControlName]="i" class="form-control" type="text" [placeholder]="'nick ' + (i + 1)">
+                </div>
+                <div class="col">
+                    <button (click)="removeNickName(i)" class="btn btn-danger w-100">delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="addNickName()" class="btn btn-outline-primary">add nick name</button>
+    <hr>
     <a href="" class="btn btn-primary">sign up</a>
 </div>

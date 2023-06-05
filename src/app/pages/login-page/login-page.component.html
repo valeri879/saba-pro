@@ -1,9 +1,42 @@
-<div class="card p-3">
+<div [formGroup]="loginForm"
+    [class.border-danger]="loginForm.invalid && loginForm.dirty"
+    [class.border-success]="loginForm.valid && loginForm.dirty"
+    class="card p-3">
+    <h1>Login</h1>
     <div class="mb-3">
-        <input type="email" placeholder="email" class="form-control">
+        <input 
+            formControlName="email" 
+            type="email"
+            placeholder="email"
+            [class.border-danger]="loginForm.controls['email'].invalid && loginForm.controls['email'].dirty"
+            [class.border-success]="loginForm.controls['email'].valid && loginForm.controls['email'].dirty"
+            class="form-control">
+        <!-- <code>
+            value: {{ loginForm.controls['email'].value }}
+            <br>
+            valid: {{ loginForm.controls['email'].valid }}
+            <br>
+            invalid: {{ loginForm.controls['email'].invalid }}
+        </code> -->
     </div>
     <div class="mb-3">
-        <input type="password" placeholder="password" class="form-control">
+        <input
+            formControlName="password"
+            type="password"
+            placeholder="password"
+            [class.border-danger]="loginForm.controls['password'].invalid && loginForm.controls['password'].dirty"
+            [class.border-success]="loginForm.controls['password'].valid && loginForm.controls['password'].dirty"
+            class="form-control">
+        <!-- <code>
+            value: {{ loginForm.controls['password'].value }}
+            <br>
+            valid: {{ loginForm.controls['password'].valid }}
+            <br>
+            invalid: {{ loginForm.controls['password'].invalid }}
+        </code> -->
     </div>
-    <a href="" class="btn btn-primary">login</a>
+    <button [disabled]="loginForm.invalid" (click)="signIn()" class="btn btn-primary">login</button>
+    <!-- <code>
+        loginForm: <br> {{ loginForm.value | json }}
+    </code> -->
 </div>
