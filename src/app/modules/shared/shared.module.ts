@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrefixPipe } from './pipes/prefix.pipe';
+import { CardComponent } from 'src/app/components/card/card.component';
 
 
 
 @NgModule({
   declarations: [
-    PrefixPipe
+    CardComponent,
   ],
   exports: [
-    PrefixPipe
+    CardComponent
   ],
   imports: [
     CommonModule

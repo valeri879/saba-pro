@@ -2,13 +2,7 @@
     <h1>კატეგორიები</h1>
     <div class="row">
         <div class="col-4" *ngFor="let category of data.categories">
-            <div class="card">
-                <img src="https://val-do.com/{{ category.img }}" alt="">
-                <div class="card-body">
-                    <h3>{{ category.title }}</h3>
-                    <div [innerHTML]="category.descr"></div>
-                </div>
-            </div>
+            <app-card [card]="category"></app-card>
         </div>
     </div>
 </ng-container>

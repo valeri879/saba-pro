@@ -1,0 +1,5 @@
+<div class="row">
+    <a routerLink="/courses-list/{{ cat._id }}" class="col-lg-3" *ngFor="let cat of categoriesList$ | async">
+        <app-card [card]="cat"></app-card>
+    </a>
+</div>

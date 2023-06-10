@@ -1,0 +1,5 @@
+<div class="row">
+    <a class="col-lg-4" *ngFor="let course of coursesList$ | async">
+        <app-card [card]="course"></app-card>
+    </a>
+</div>
