@@ -1,0 +1,12 @@
+<ng-container *ngIf="course$ | async as course">
+    <h1>{{ course.title }}</h1>
+    <div [innerHTML]="course.descr"></div>
+
+    <!-- similar courses -->
+    <h2>similar courses</h2>
+    <div class="row">
+        <a routerLink="/course-detail/{{similarCourse._id}}" *ngFor="let similarCourse of course.similarCourse" class="col-lg-4">
+            <app-card [card]="similarCourse"></app-card>
+        </a>
+    </div>
+</ng-container>
