@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-center" *ngIf="data">
+    <a [routerLink]="[]" [queryParams]="{ page: data.currentPage - 1 }" *ngIf="data.prev">prev</a>
+    <a class="px-3 border" [routerLink]="[]" [queryParams]="{ page: page }" *ngFor="let page of data.pagesArray">{{ page }}</a>
+    <a [routerLink]="[]" [queryParams]="{ page: data.currentPage + 1 }" *ngIf="data.next">next</a>
+</div>

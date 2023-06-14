@@ -1,0 +1,6 @@
+<div class="row">
+    <a class="col-lg-4" *ngFor="let blog of blogList">
+        <app-card [card]="blog"></app-card>
+    </a>
+</div>
+<app-pagination [data]="pagination"></app-pagination>
