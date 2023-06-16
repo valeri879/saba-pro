@@ -1,5 +1,5 @@
 <div class="row">
-    <a class="col-lg-4" *ngFor="let blog of blogList">
+    <a routerLink="/blog/detail/{{blog._id}}" class="col-lg-4" *ngFor="let blog of blogList">
         <app-card [card]="blog"></app-card>
     </a>
 </div>

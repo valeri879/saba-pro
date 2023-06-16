@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,6 +10,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginPageComponent implements OnInit {
 
   public loginForm!: FormGroup;
+
+  private _authService = inject(AuthService);
   
 /*   new FormGroup({
     email: new FormControl(null, [
@@ -50,11 +53,6 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this._initForm();
-    this.email.valueChanges.subscribe(
-      email => {
-        console.log(email);
-      }
-    );
   }
 
   get email(): FormControl {
@@ -62,6 +60,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   signIn() {
-    console.log(this.loginForm);
+    this._authService.login(this.loginForm.value).subscribe(
+      () => {},
+      err => {
+        console.log(err.error);
+      }
+    );
   }
 }

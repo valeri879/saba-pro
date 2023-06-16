@@ -1,7 +1,8 @@
 <div class="card">
-    <img *ngIf="card.img" src="https://val-do.com/{{card.img}}" class="card-img-top" [alt]="card.title">
+    <img *ngIf="card.img || card.image" src="https://val-do.com/{{card.img || card.image}}" class="card-img-top" [alt]="card.title">
     <div class="card-body">
       <h5 class="card-title">{{ card.title }}</h5>
-      <!-- <p class="card-text">{{ card.descr }}</p> -->
+      <p *ngIf="card.descr" class="card-text">{{ card.descr | shortDescr }}</p>
+      <p *ngIf="card.description" class="card-text">{{ card.description | shortDescr }}</p>
     </div>
   </div>

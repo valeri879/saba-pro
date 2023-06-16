@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'categories', loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule) },
   { path: 'courses-list', loadChildren: () => import('./modules/courses-list/courses-list.module').then(m => m.CoursesListModule) },
   { path: 'course-detail', loadChildren: () => import('./modules/course-detail/course-detail.module').then(m => m.CourseDetailModule) },
-  { path: 'blogs', loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule) },
+  { path: 'blog', loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule) },
   /* admin routes */
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }, 
   { path: '**', component: NotFoundPageComponent, title: 'Page not found 404' },

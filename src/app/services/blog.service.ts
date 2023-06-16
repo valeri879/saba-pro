@@ -24,4 +24,8 @@ export class BlogService {
       }
     });
   }
+
+  getBlog(id: string): Observable<Blog> {
+    return this._http.get<Blog>(`http://localhost:8000/api/blog/${id}`);
+  }
 }
