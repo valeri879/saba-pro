@@ -4,13 +4,24 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SingUpPageComponent } from './pages/sing-up-page/sing-up-page.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { loginGuard } from './guards/login.guard';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { profileGuard } from './guards/profile.guard';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
-  { path: 'auth', component: AuthPageComponent, children: [
+  { path: 'auth',
+    component: AuthPageComponent, 
+    canActivate: [ loginGuard ],
+    children: [
       { path: 'login', component: LoginPageComponent },
       { path: 'sign-up', component: SingUpPageComponent },
     ]
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
+    canActivate: [ profileGuard ]
   },
   { path: 'categories', loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule) },
   { path: 'courses-list', loadChildren: () => import('./modules/courses-list/courses-list.module').then(m => m.CoursesListModule) },

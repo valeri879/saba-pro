@@ -3,6 +3,13 @@
         <a class="navbar-brand" routerLink="/">Navbar</a>
         <a class="nav-link active" routerLink="categories">Categories</a>
         <a class="nav-link active" routerLink="blog">Blogs</a>
-        <a class="nav-link active" routerLink="auth/login">Auth</a>
+        <a class="nav-link active" routerLink="auth/login">
+            <ng-container *ngIf="authService.isLoggedIn(); else auth">
+                <button (click)="authService.logOut()">logout</button>
+            </ng-container>
+            <ng-template #auth>
+                auth
+            </ng-template>
+        </a>
     </div>
 </nav>
