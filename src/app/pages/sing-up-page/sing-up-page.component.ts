@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sing-up-page',
@@ -11,7 +12,8 @@ export class SingUpPageComponent implements OnInit {
   public singUpForm!: FormGroup;
 
   constructor(
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _authService: AuthService
   ) {
 
   }
@@ -24,20 +26,21 @@ export class SingUpPageComponent implements OnInit {
     this.singUpForm = this._fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
-      rePassword: [null, [Validators.required]],
-      nickNames: this._fb.array([])
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      phone: [null, [Validators.required]]
     })
   };
 
-  get nickNames(): FormArray {
-    return this.singUpForm.controls['nickNames'] as FormArray;
+  signUp() {
+    this._authService.signUp(this.singUpForm.value).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
-  addNickName() {
-    this.nickNames.push(new FormControl(null));
-  }
-
-  removeNickName(i: number) {
-    this.nickNames.removeAt(i);
-  }
 }

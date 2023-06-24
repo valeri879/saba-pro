@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-body">
+        <h1>Email verification</h1>
+        <p>Enter 5 digit code</p>
+        <input type="tel" [formControl]="code" class="form-control mb-3">
+
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+        <div *ngIf="success" class="alert alert-success">{{ success }}</div>
+
+        <button [disabled]="code.invalid || success" (click)="verification()" class="btn btn-primary w-100">verification</button>
+    </div>
+</div>

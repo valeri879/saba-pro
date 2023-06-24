@@ -18,8 +18,22 @@ export class AuthService {
     );
   }
 
-  private _setToken(userData: Login): void {
-    this._router.navigateByUrl('profile');
+  signUp(data: any): Observable<any> {
+    return this._http.post<any>(`http://localhost:8000/api/registration`, data).pipe(
+      tap(userData => this._setToken(userData, data))
+    );
+  }
+
+  emialVerification(data: any): Observable<any> {
+    return this._http.post<any>(`http://localhost:8000/api/registration/verification`, data) 
+  }
+
+  private _setToken(userData: Login, signUpData?: any): void {
+    signUpData ? this._router.navigate(['verification'], {
+      queryParams: {
+        email: signUpData.email
+      }
+    }) : this._router.navigateByUrl('profile');
     localStorage.setItem('user', JSON.stringify(userData));
   }
 

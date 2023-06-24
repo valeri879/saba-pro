@@ -6,23 +6,15 @@
     <div class="mb-3">
         <input formControlName="password" type="password" placeholder="password" class="form-control">
     </div>
-    <div class="">
-        <input formControlName="rePassword" type="password" placeholder="replay password" class="form-control">
+    <div class="mb-3">
+        <input formControlName="firstName" type="text" placeholder="first name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input formControlName="lastName" type="text" placeholder="last name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input formControlName="phone" type="tel" placeholder="phone" class="form-control">
     </div>
     <hr>
-    <div formArrayName="nickNames">
-        <div *ngFor="let nick of nickNames.controls; let i = index">
-            <div class="row gx-1 mb-3">
-                <div class="col-9">
-                    <input [formControlName]="i" class="form-control" type="text" [placeholder]="'nick ' + (i + 1)">
-                </div>
-                <div class="col">
-                    <button (click)="removeNickName(i)" class="btn btn-danger w-100">delete</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <button (click)="addNickName()" class="btn btn-outline-primary">add nick name</button>
-    <hr>
-    <a href="" class="btn btn-primary">sign up</a>
+    <button [disabled]="singUpForm.invalid" class="btn btn-primary" (click)="signUp()">sign up</button>
 </div>

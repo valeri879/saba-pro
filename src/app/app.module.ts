@@ -11,6 +11,7 @@ import { SingUpPageComponent } from './pages/sing-up-page/sing-up-page.component
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { VerificationPageComponent } from './pages/verification-page/verification-page.component';
 
 console.log('App module loaded...');
 
@@ -23,6 +24,7 @@ console.log('App module loaded...');
     SingUpPageComponent,
     AuthPageComponent,
     ProfilePageComponent,
+    VerificationPageComponent,
   ],
   imports: [
     ReactiveFormsModule,

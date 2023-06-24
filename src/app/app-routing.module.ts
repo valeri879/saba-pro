@@ -7,6 +7,7 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { loginGuard } from './guards/login.guard';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { profileGuard } from './guards/profile.guard';
+import { VerificationPageComponent } from './pages/verification-page/verification-page.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
@@ -17,6 +18,11 @@ const routes: Routes = [
       { path: 'login', component: LoginPageComponent },
       { path: 'sign-up', component: SingUpPageComponent },
     ]
+  },
+  {
+    path: 'verification',
+    component: VerificationPageComponent,
+    title: 'Verify your email'
   },
   {
     path: 'profile',
