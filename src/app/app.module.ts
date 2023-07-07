@@ -12,7 +12,9 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { VerificationPageComponent } from './pages/verification-page/verification-page.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteConfirmationComponent } from './dialogs/delete-confirmation/delete-confirmation.component';
 console.log('App module loaded...');
 
 @NgModule({
@@ -25,12 +27,15 @@ console.log('App module loaded...');
     AuthPageComponent,
     ProfilePageComponent,
     VerificationPageComponent,
+    DeleteConfirmationComponent,
   ],
   imports: [
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

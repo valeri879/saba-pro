@@ -1,1 +1,18 @@
-{{ profileData$ | async | json }}
+<ng-container *ngIf="profileData$ | async as data">
+    <h2>Profile</h2>
+    <ul>
+        <li>{{ data.user.firstName }}</li>
+        <li>{{ data.user.lastName }}</li>
+        <li>{{ data.user.email }}</li>
+    </ul>
+    <h2>Resume</h2>
+    <div class="card p-3">
+        <h3>{{ data.cv.role }}</h3>
+        <p>{{ data.cv.about }}</p>
+        <div class="card-actions">
+            <a href="#" class="btn btn-primary me-1">დეტალურად ნახვა</a>
+            <button class="btn btn-outline-primary me-1">რედაქტირება</button>
+            <button (click)="delete()" class="btn btn-outline-danger">წაშლა</button>
+        </div>
+    </div>
+</ng-container>
